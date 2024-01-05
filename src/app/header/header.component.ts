@@ -17,7 +17,6 @@ export class HeaderComponent {
       if (event instanceof NavigationEnd) {
         const currentRoute = this.router.url;
 
-        // Verifica si document está definido antes de acceder a él
         if (typeof document !== 'undefined') {
           if (currentRoute === '/') {
             document.getElementById('bcalendario')?.classList.add('botoncontenidoactual');
