@@ -2,12 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>MyApp</title>
+  <title>U-Calendar</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/bf7e2ba98b.js" crossorigin="anonymous"></script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
   <app-root></app-root>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var botonMenu = document.getElementById('botonmenu');
+        var botonesMenu = document.querySelector('.botonesmenu');
+        var documentacion = document.querySelector('.documentacion');
+        
+        botonMenu.addEventListener('click', function () {
+            if (botonesMenu.style.display === 'none' || botonesMenu.style.display === '') {
+                botonesMenu.style.display = 'flex';
+                documentacion.style.display = 'flex';
+            } else {
+                botonesMenu.style.display = 'none';
+                documentacion.style.display = 'none';
+            }
+        });
+    });
+</script>
 </body>
 </html>
