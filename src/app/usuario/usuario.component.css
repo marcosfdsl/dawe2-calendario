@@ -67,6 +67,12 @@
     margin-right: 10%;
 }
 
+.logobotoncontenido2 {
+    color: white;
+    font-size: x-large;
+    margin-right: 4%;
+}
+
 .contenedorlogobotoncontenido {
     justify-content: center;
     width: 10%;
