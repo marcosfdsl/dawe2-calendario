@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { CalendarioComponent } from './calendario/calendario.component';
 import { ProfesoresComponent } from './profesores/profesores.component';
 import { UsuarioComponent } from './usuario/usuario.component';
-import { MensajesComponent } from './mensajes/mensajes.component';
+import { NotificacionesComponent } from './notificaciones/notificaciones.component';
 import { ProfesorComponent } from './profesor/profesor.component';
 import { MensajeComponent } from './mensaje/mensaje.component';
 
@@ -17,12 +17,12 @@ export const routes: Routes = [
         path: 'usuario', title: 'Usuario', component: UsuarioComponent,
     },
     {
-        path: 'mensajes', title: 'Mensajes', component: MensajesComponent,
+        path: 'notificaciones', title: 'Notificaciones', component: NotificacionesComponent,
     },
     {
         path: 'profesores/profesor', title: 'Profesor', component: ProfesorComponent,
     },
     {
-        path: 'mensajes/mensaje', title: 'Mensaje', component: MensajeComponent,
+        path: 'profesores/mensaje', title: 'Mensaje', component: MensajeComponent,
     },
 ];

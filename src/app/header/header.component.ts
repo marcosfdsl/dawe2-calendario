@@ -22,25 +22,25 @@ export class HeaderComponent {
             document.getElementById('bcalendario')?.classList.add('botoncontenidoactual');
             document.getElementById('bprofesores')?.classList.remove('botoncontenidoactual');
             document.getElementById('busuario')?.classList.remove('botoncontenidoactual');
-            document.getElementById('bmensajes')?.classList.remove('botoncontenidoactual');
+            document.getElementById('bnotificaciones')?.classList.remove('botoncontenidoactual');
 
-          } else if (currentRoute === '/profesores' || currentRoute === '/profesores/profesor') {
+          } else if (currentRoute === '/profesores' || currentRoute === '/profesores/profesor' || currentRoute === '/profesores/mensaje') {
             document.getElementById('bcalendario')?.classList.remove('botoncontenidoactual');
             document.getElementById('bprofesores')?.classList.add('botoncontenidoactual');
             document.getElementById('busuario')?.classList.remove('botoncontenidoactual');
-            document.getElementById('bmensajes')?.classList.remove('botoncontenidoactual');
+            document.getElementById('bnotificaciones')?.classList.remove('botoncontenidoactual');
 
           } else if (currentRoute === '/usuario') {
             document.getElementById('bcalendario')?.classList.remove('botoncontenidoactual');
             document.getElementById('bprofesores')?.classList.remove('botoncontenidoactual');
             document.getElementById('busuario')?.classList.add('botoncontenidoactual');
-            document.getElementById('bmensajes')?.classList.remove('botoncontenidoactual');
+            document.getElementById('bnotificaciones')?.classList.remove('botoncontenidoactual');
 
-          } else if (currentRoute === '/mensajes' || currentRoute === '/mensajes/mensaje') {
+          } else if (currentRoute === '/bnotificaciones') {
             document.getElementById('bcalendario')?.classList.remove('botoncontenidoactual');
             document.getElementById('bprofesores')?.classList.remove('botoncontenidoactual');
             document.getElementById('busuario')?.classList.remove('botoncontenidoactual');
-            document.getElementById('bmensajes')?.classList.add('botoncontenidoactual');
+            document.getElementById('bnotificaciones')?.classList.add('botoncontenidoactual');
 
           }
         }
