@@ -67,11 +67,6 @@
     margin-right: 5%;
 }
 
-.contenedorlogobotoncontenido {
-    justify-content: center;
-    width: 10%;
-}
-
 .documentacion {
     width: 100%;
     color: rgb(196, 196, 196);
@@ -134,11 +129,7 @@
         padding-right: 10%;
         justify-content: flex-start;
     }
-
-    .contenedorlogobotoncontenido {
-        width: 30%;
-    }
-
+    
     .documentacion {
         display: flex;
         flex-direction: column;
