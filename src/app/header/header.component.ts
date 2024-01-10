@@ -36,7 +36,7 @@ export class HeaderComponent {
             document.getElementById('busuario')?.classList.add('botoncontenidoactual');
             document.getElementById('bnotificaciones')?.classList.remove('botoncontenidoactual');
 
-          } else if (currentRoute === '/bnotificaciones') {
+          } else if (currentRoute === '/notificaciones') {
             document.getElementById('bcalendario')?.classList.remove('botoncontenidoactual');
             document.getElementById('bprofesores')?.classList.remove('botoncontenidoactual');
             document.getElementById('busuario')?.classList.remove('botoncontenidoactual');
