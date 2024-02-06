@@ -23,7 +23,7 @@ const { id } = Astro.props;
 </div>
 
 <script define:vars={{ id }}>
-    fetch(`/api/v1/datos/${id}`)
+    fetch(`/api/v1/profesores/${id}`)
         .then((response) => response.json())
         .then((data) => {
             document.getElementById(`nombre${id}`).textContent = data.db.nombre;

@@ -24,23 +24,25 @@ app.get("/", function (req, response) {
     response.sendFile(path.join(__dirname, "dist/"));
 });
 
-app.get('/api/v1/datos', (req, res) => {
+app.get('/api/v1/profesores', (req, res) => {
     res.status(200).send({
         success: 'true',
         message: 'Datos recuperados con éxito!',
-        datos: db
+        profesores: db
     });
 });
 
-app.get('/api/v1/datos/:id', (req, res) => {
-    const id = parseInt(req.params.id, 10);
-    const datos = db.find(d => d.id === id);
 
-    if (datos) {
+
+app.get('/api/v1/profesores/:id', (req, res) => {
+    const id = parseInt(req.params.id, 10);
+    const profesores = db.find(d => d.id === id);
+
+    if (profesores) {
         res.status(200).send({
             success: 'true',
             message: 'Dato recuperado con éxito!',
-            db: datos
+            db: profesores
         })
     } else {
         res.status(404).send({
@@ -50,7 +52,7 @@ app.get('/api/v1/datos/:id', (req, res) => {
     }
 })
 
-app.post('/api/v1/datos', (req, res) => {
+app.post('/api/v1/profesores', (req, res) => {
     if (!req.body.nombre || !req.body.correo) {
         res.status(400).send({
             success: 'false',
@@ -61,23 +63,23 @@ app.post('/api/v1/datos', (req, res) => {
     }
 
     const id = db.length + 1;
-    const datos = { id, ...req.body };
-    db.push(datos);
+    const profesores = { id, ...req.body };
+    db.push(profesores);
     res.writeHead(201, { 'Cpntent-Type': 'application/json; charset=utf-8' });
-    res.end(JSON.stringify(datos));
+    res.end(JSON.stringify(profesores));
 
 });
 
-app.put("/api/v1/datos/:id", (req, res) => {
+app.put("/api/v1/profesores/:id", (req, res) => {
     const id = parseInt(req.params.id, 10);
-    const datos = db.find(d => d.id === id);
-    if (datos) {
-        datos.nombre = req.body.nombre ? req.body.nombre : datos.nombre;
-        datos.correo = req.body.correo ? req.body.correo : datos.correo;
+    const profesores = db.find(d => d.id === id);
+    if (profesores) {
+        profesores.nombre = req.body.nombre ? req.body.nombre : profesores.nombre;
+        profesores.correo = req.body.correo ? req.body.correo : profesores.correo;
         return res.status(200).send({
             success: "true",
             message: "Dato actializado con éxito!",
-            db: datos
+            db: profesores
         });
     } else {
         return res.status(404).send({
@@ -87,15 +89,15 @@ app.put("/api/v1/datos/:id", (req, res) => {
     }
 });
 
-app.delete('/api/v1/datos/:id', (req, res) => {
+app.delete('/api/v1/profesores/:id', (req, res) => {
     const id = parseInt(req.params.id, 10);
-    const datos = db.find(d => d.id === id);
-    if (datos) {
-        db.splice(db.indexOf(datos), 1);
+    const profesores = db.find(d => d.id === id);
+    if (profesores) {
+        db.splice(db.indexOf(profesores), 1);
         return res.status(200).send({
             success: "true",
             message: "Dato eliminado con éxito!",
-            db: datos
+            db: profesores
         });
     } else {
         return res.status(404).send({

@@ -1,4 +1,4 @@
-const datos = [
+const profesores = [
     {
         id: 1,
         nombre: "Silvia Orenes",
@@ -16,4 +16,4 @@ const datos = [
     }
 ];
 
-export default datos;
+export default profesores;
