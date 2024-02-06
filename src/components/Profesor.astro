@@ -2,6 +2,15 @@
 export interface Props {
     id: number;
 }
+
+const { id } = Astro.props;
+
+fetch(`/api/v1/datos/${id}`)
+    .then((response) => response.json())
+    .then((data) => {
+        document.getElementById("datoNombre").textContent = data.db.nombre;
+    })
+    .catch((error) => console.error("Error al obtener el dato:", error));
 ---
 
 <div class="h-1/3 flex justify-between items-center px-6">
@@ -19,15 +28,3 @@ export interface Props {
         >
     </div>
 </div>
-
-<script>
-    fetch("/api/v1/datos/1")
-        .then((response) => response.json())
-        .then((data) => {
-            document.getElementById("datoNombre").textContent =
-                data.db.nombre;
-        })
-        .catch((error) =>
-            console.error("Error al obtener el dato:", error),
-        );
-</script>
