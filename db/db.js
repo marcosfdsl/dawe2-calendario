@@ -1,8 +1,8 @@
 const datos = [
     {
         id: 1,
-        title: "Desayuno",
-        description: "Voy a desayunar a las 7am"
+        nombre: "Silvia Orenes",
+        correo: "silvia.orenes@live.u-tad.com"
     }
 ];
 
