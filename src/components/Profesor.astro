@@ -7,15 +7,14 @@ const { id } = Astro.props;
 ---
 
 <div class="h-1/3 flex justify-between items-center px-6">
-    <span id=`idprofesor${id}` class="hidden">{id}</span>
     <h3 id=`nombre${id}` class="font-bold"></h3>
     <div>
-        <a href="/mensaje"
+        <a href=`/mensaje`
             ><i
                 class="fa-solid fa-envelope text-xl mx-2 hover:text-gray-800 active:text-gray-700"
             ></i></a
         >
-        <a href="/profesor"
+        <a href=`/profesor`
             ><i
                 class="fa-solid fa-user text-xl mx-2 hover:text-gray-800 active:text-gray-700"
             ></i></a
@@ -23,13 +22,11 @@ const { id } = Astro.props;
     </div>
 </div>
 
-<script>
-    var id = document.querySelector(`idprofesor${id}`).innerHTML;
-
-fetch(`/api/v1/datos/${id}`)
-    .then((response) => response.json())
-    .then((data) => {
-        document.getElementById(`nombre${id}`).textContent = data.db.nombre;
-    })
-    .catch((error) => console.error("Error al obtener el dato:", error));
+<script define:vars={{ id }}>
+    fetch(`/api/v1/datos/${id}`)
+        .then((response) => response.json())
+        .then((data) => {
+            document.getElementById(`nombre${id}`).textContent = data.db.nombre;
+        })
+        .catch((error) => console.error("Error al obtener el dato:", error));
 </script>

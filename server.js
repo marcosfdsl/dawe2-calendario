@@ -24,9 +24,6 @@ app.get("/", function (req, response) {
     response.sendFile(path.join(__dirname, "dist/"));
 });
 
-
-
-
 app.get('/api/v1/datos', (req, res) => {
     res.status(200).send({
         success: 'true',
