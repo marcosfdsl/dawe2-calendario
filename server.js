@@ -54,7 +54,7 @@ app.get('/api/v1/datos/:id', (req, res) => {
 })
 
 app.post('/api/v1/datos', (req, res) => {
-    if (!req.body.title || !req.body.description) {
+    if (!req.body.nombre || !req.body.correo) {
         res.status(400).send({
             success: 'false',
             message: 'Datos: Título y descripción requeridos!'
@@ -75,8 +75,8 @@ app.put("/api/v1/datos/:id", (req, res) => {
     const id = parseInt(req.params.id, 10);
     const datos = db.find(d => d.id === id);
     if (datos) {
-        datos.title = req.body.title ? req.body.title : datos.title;
-        datos.description = req.body.description ? req.body.description : datos.description;
+        datos.nombre = req.body.nombre ? req.body.nombre : datos.nombre;
+        datos.correo = req.body.correo ? req.body.correo : datos.correo;
         return res.status(200).send({
             success: "true",
             message: "Dato actializado con éxito!",
