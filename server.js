@@ -1,7 +1,13 @@
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 var express = require('express');
-var path = require('path');
 const bodyParser = require('body-parser');
 var http = require('http');
+import db from './db/db.js';
 
 var app = express();
 var server = http.Server(app);
@@ -10,12 +16,12 @@ var port = 8080;
 app.set("port", port);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "dist/my-app/browser/")));
+app.use(express.static(path.join(__dirname, "dist/")));
 app.use(bodyParser.json());
 
 // Routing
 app.get("/", function (req, response) {
-    response.sendFile(path.join(__dirname, "dist/my-app/browser/"));
+    response.sendFile(path.join(__dirname, "dist/"));
 });
 
 
