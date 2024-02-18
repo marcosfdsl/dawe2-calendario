@@ -33,6 +33,15 @@ app.get('/profesor', (req, res) => {
     }
 });
 
+app.get('/mensaje', (req, res) => {
+    const id = req.query.id;
+    if (id) {
+        res.redirect(`/profesor/?id=${id}`);
+    } else {
+        res.status(400).send('Error: Falta el parámetro "id" en la URL');
+    }
+});
+
 app.get('/api/v1/profesores', (req, res) => {
     res.status(200).send({
         success: 'true',

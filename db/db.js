@@ -20,6 +20,26 @@ const profesores = [
                 cursoAsignatura: "DAM1",
                 diasAsignatura: ["Martes", "Miércoles", "Jueves"]
             }
+        ],
+        notificaciones: [
+            {
+                tipo: "Mensaje",
+                emisor: "Román Ontiyuelo",
+                fecha: "18/02/2024 16:49",
+                contenido: "Hola!"
+            },
+            {
+                tipo: "Recordatorio",
+                emisor: "reunión",
+                fecha: "24/02/2024 12:00",
+                contenido: "Reunión DAW1"
+            },
+            {
+                tipo: "Recordatorio",
+                emisor: "tutoría",
+                fecha: "05/03/2024 17:30",
+                contenido: "Padres de Alejandro García"
+            }
         ]
     },
     {
@@ -59,6 +79,23 @@ const profesores = [
                 nombreAsignatura: "Diseño de Interfaces",
                 cursoAsignatura: "DAW2",
                 diasAsignatura: ["Lunes", "Miércoles", "viernes"]
+            }
+        ]
+    },
+    {
+        id: 4,
+        nombre: "Javier Magariño",
+        correo: "javier.magarino@live.u-tad.com",
+        usuario: "javier.magarino",
+        contrasena: "1234",
+        telefono: "600000003",
+        cargo: "profesor/a",
+        asignaturas: [
+            {
+                idAsignatura: 1,
+                nombreAsignatura: "Bases de Datos",
+                cursoAsignatura: "DAW1",
+                diasAsignatura: ["Martes", "Miércoles", "Viernes"]
             }
         ]
     }

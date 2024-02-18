@@ -5,10 +5,10 @@ import logo from "../fotos/logo.png";
 
 <Layout title="Profesor">
     <main class="contenido z-10 overflow-y-auto">
-        <a
-            href="/profesores"
-            class="fixed fa-solid fa-arrow-left text-2xl mt-4 ml-4 hover:text-gray-800 active:text-gray-700"
-        ></a>
+        <span
+            id="volver"
+            class="fixed fa-solid fa-arrow-left text-2xl mt-4 ml-4 hover:text-gray-700 active:text-gray-600 duration-500 cursor-pointer"
+        ></span>
         <section class="flex flex-col justify-end items-center h-1/4">
             <img class="w-auto h-1/2 rounded-full" src={logo.src} alt="" />
             <div class="h-1/3 flex flex-col justify-end items-center">
@@ -105,6 +105,12 @@ import logo from "../fotos/logo.png";
         function obtenerIdProfesorDeLaURL() {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get("id");
+        }
+
+        document.getElementById("volver").addEventListener("click", atras);
+
+        function atras() {
+            window.history.back();
         }
     </script>
 </Layout>

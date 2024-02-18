@@ -8,45 +8,41 @@ import Layout from "../layouts/Layout.astro";
             <div class="flex flex-col items-start mb-4 mx-4 lg:mx-8">
                 <h2 class="text-lg mt-4">Notificaciones</h2>
                 <div
+                    id="contenedorNotificaciones"
                     class="bg-white w-full h-72 mt-4 border border-solid border-gray-300"
                 >
-                    <a
-                        href="/mensaje"
-                        class="h-1/3 flex justify-between items-center px-6 hover:bg-gray-100 active:bg-gray-200"
-                    >
-                        <h3
-                            class="font-bold hover:text-gray-800 active:text-gray-700"
-                        >
-                            Mensaje de Profesor 1
-                        </h3>
-                        <h3>Hola!</h3>
-                    </a>
-                    <a
-                        href="/notificaciones"
-                        class="h-1/3 flex justify-between items-center px-6 hover:bg-gray-100 active:bg-gray-200 border-t border-solid border-gray-300"
-                    >
-                        <h3
-                            class="font-bold hover:text-gray-800 active:text-gray-700"
-                        >
-                            Recordatorio
-                        </h3>
-                        <h3>"Reunión DAW" el 15/3/24</h3>
-                    </a>
-                    <a
-                        href="/notificaciones"
-                        class="h-1/3 flex justify-between items-center px-6 hover:bg-gray-100 active:bg-gray-200 border-t border-solid border-gray-300"
-                    >
-                        <h3
-                            class="font-bold hover:text-gray-800 active:text-gray-700"
-                        >
-                            Recordatorio
-                        </h3>
-                        <h3>"Reunión DAM" el 16/3/24</h3>
-                    </a>
+                    <!-- notificaciones -->
                 </div>
             </div>
         </section>
     </main>
-</Layout>
 
-<style></style>
+    <script>
+        fetch(`/api/v1/profesores/${localStorage.getItem("idUsuario")}`)
+            .then((response) => response.json())
+            .then((data) => {
+                for (let i = 0; i < data.db.notificaciones.length; i++) {
+                    document.querySelector(
+                        "#contenedorNotificaciones",
+                    ).innerHTML += `
+                        <div
+                            class="h-1/3 flex justify-between items-center px-6 hover:bg-gray-100 active:bg-gray-200 cursor-pointer"
+                        >
+                            <h3
+                                class="font-bold hover:text-gray-800 active:text-gray-700"
+                            >
+                                ${data.db.notificaciones[i].tipo} de ${data.db.notificaciones[i].emisor}
+                            </h3>
+                            <h3>
+                                ${data.db.notificaciones[i].contenido}
+                                <span id="fecha" class="ml-2 text-gray-400">${data.db.notificaciones[i].fecha}</span>
+                            </h3>
+                        </div>
+                    `;
+                }
+            })
+            .catch((error) =>
+                console.error("Error al obtener el dato:", error),
+            );
+    </script>
+</Layout>

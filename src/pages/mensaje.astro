@@ -5,21 +5,20 @@ import logo from "../fotos/logo.png";
 
 <Layout title="Mensaje">
     <main class="contenido z-10 overflow-y-auto">
-        <a
-            href="/notificaciones"
-            class="fixed fa-solid fa-arrow-left text-2xl mt-4 ml-4 hover:text-gray-800 active:text-gray-700"
-        ></a>
+        <span
+            id="volver"
+            class="fixed fa-solid fa-arrow-left text-2xl mt-4 ml-4 hover:text-gray-700 active:text-gray-600 duration-500 cursor-pointer"
+        ></span>
         <section class="flex flex-col justify-end items-center h-1/4">
             <img
-                class="w-auto h-1/2 rounded-full"
+                id="fotoPerfil"
+                class="w-auto h-1/2 rounded-full cursor-pointer hover:brightness-110 transition duration-300"
                 src={logo.src}
                 alt=""
             />
             <div class="h-1/3 flex flex-col justify-end items-center">
-                <h1 id="nombre" class="text-xl font-bold">
-                    Nombre del profesor
-                </h1>
-                <h1 id="usuario" class="">Nombre de usuario</h1>
+                <h1 id="nombre" class="text-xl font-bold"></h1>
+                <h1 id="usuario" class=""></h1>
             </div>
         </section>
         <section class="w-full flex flex-col p-4 lg:p-8 h-3/4">
@@ -58,6 +57,38 @@ import logo from "../fotos/logo.png";
             </div>
         </section>
     </main>
+
+    <script>
+        const id = obtenerIdProfesorDeLaURL();
+
+        fetch(`/api/v1/profesores/${id}`)
+            .then((response) => response.json())
+            .then((data) => {
+                document.getElementById(`nombre`).textContent = data.db.nombre;
+                document.getElementById(`usuario`).textContent =
+                    data.db.usuario;
+            })
+            .catch((error) =>
+                console.error("Error al obtener el dato:", error),
+            );
+
+        document
+            .querySelector("#fotoPerfil")
+            .addEventListener("click", function () {
+                window.location.href = `/profesor/?id=${id}`;
+            });
+
+        function obtenerIdProfesorDeLaURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get("id");
+        }
+
+        document.getElementById("volver").addEventListener("click", atras);
+
+        function atras() {
+            window.history.back();
+        }
+    </script>
 </Layout>
 
 <style></style>
