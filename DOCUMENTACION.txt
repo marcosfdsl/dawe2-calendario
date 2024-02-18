@@ -20,4 +20,7 @@ Para instalar las dependencias del proyecto, el primer comando debe ser siempre 
 Para hacer el build, 'npm run build' (obligatorio si se quiere iniciar el servidor, ya que el servidor sirve 'dist/')
 Para iniciar el servidor en localhost y probar la aplicación, 'node server.js'.
 Actualmente el servidor está alojado en https://u-calendar-2024.ew.r.appspot.com a través de Google Cloud.
-Para futuro podrá alojarse donde se desee.
+'app.yaml' y 'cloudbuild.yaml' sólo son necesarios para hacer deploy en la instancia de Google Cloud.
+Para futuro podrá alojarse donde se desee y eliminar dichos archivos.
+
+Mi correo personal es mark.musicteam@hotmail.com (Marcos) para cualquier duda.
