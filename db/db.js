@@ -4,6 +4,7 @@ const profesores = [
         nombre: "Silvia Orenes",
         correo: "silvia.orenes@live.u-tad.com",
         usuario: "silvia.orenes",
+        contrasena: "1234",
         telefono: "600000000",
         cargo: "profesor/a",
         asignaturas: [
@@ -26,6 +27,7 @@ const profesores = [
         nombre: "Nayra Benítez",
         correo: "nayra.benitez@live.u-tad.com",
         usuario: "nayra.benitez",
+        contrasena: "1234",
         telefono: "600000001",
         cargo: "profesor/a",
         asignaturas: [
@@ -43,6 +45,7 @@ const profesores = [
         correo: "roman.ontiyuelo@live.u-tad.com",
         usuario: "roman.ontiyuelo",
         telefono: "600000002",
+        contrasena: "1234",
         cargo: "profesor/a",
         asignaturas: [
             {

@@ -32,8 +32,6 @@ app.get('/api/v1/profesores', (req, res) => {
     });
 });
 
-
-
 app.get('/api/v1/profesores/:id', (req, res) => {
     const id = parseInt(req.params.id, 10);
     const profesores = db.find(d => d.id === id);
@@ -51,6 +49,25 @@ app.get('/api/v1/profesores/:id', (req, res) => {
         })
     }
 })
+
+app.post('/api/v1/acceder', (req, res) => {
+    let usuarioValido = false;
+    let idUsuario = null;
+    for (let i = 0; i < db.length; i++) {
+        if (req.body.usuario === db[i].usuario && req.body.contrasena === db[i].contrasena) {
+            usuarioValido = true;
+            idUsuario = db[i].id;
+            break;
+        }
+    }
+
+    if (usuarioValido) {
+        res.json({ idUsuario });
+    } else {
+        res.status(401).send('Credenciales inválidas.');
+    }
+});
+
 
 app.post('/api/v1/profesores', (req, res) => {
     if (!req.body.nombre || !req.body.correo) {

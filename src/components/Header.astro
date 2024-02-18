@@ -1,42 +1,66 @@
 ---
-import logoheader from '../fotos/logo-header.png'
+import logoheader from "../fotos/logo-header.png";
 ---
 
 <header class="menu">
     <div class="flex justify-between">
         <a href="/" class="botonlogoheader">
-            <img class="h-1/3 lg:h-auto" src={logoheader.src} alt="">
+            <img class="h-1/3 lg:h-auto" src={logoheader.src} alt="" />
         </a>
-        <button id="botonmenu" class="fa-solid fa-bars logobotoncontenido2"></button>
+        <button id="botonmenu" class="fa-solid fa-bars logobotoncontenido2"
+        ></button>
     </div>
     <div class="botonesmenu">
-        <a id="bcalendario" href="/" class="botoncontenido mt-24 lg:mt-0">
-            <div class="hidden lg:flex lg:justify-center lg:w-1/4"><i
-                    class="fa-sharp fa-solid fa-calendar logobotoncontenido"></i></div>
+        <a id="bcalendario" href="/" class="flex botoncontenido mt-24 lg:mt-0">
+            <div class="hidden lg:flex lg:justify-center lg:w-1/4">
+                <i class="fa-sharp fa-solid fa-calendar logobotoncontenido"></i>
+            </div>
             <h2>Calendario</h2>
         </a>
-        <a id="bprofesores" href="/profesores" class="botoncontenido">
-            <div class="hidden lg:flex lg:justify-center lg:w-1/4"><i class="fa-sharp fa-solid fa-users logobotoncontenido"></i>
+        <a id="bprofesores" href="/profesores" class="flex botoncontenido">
+            <div class="hidden lg:flex lg:justify-center lg:w-1/4">
+                <i class="fa-sharp fa-solid fa-users logobotoncontenido"></i>
             </div>
             <h2>Profesores</h2>
         </a>
-        <a id="busuario" href="/usuario" class="botoncontenido">
-            <div class="hidden lg:flex lg:justify-center lg:w-1/4"><i class="fa-sharp fa-solid fa-user logobotoncontenido"></i>
+        <a id="busuario" href="/usuario" class="hidden botoncontenido">
+            <div class="hidden lg:flex lg:justify-center lg:w-1/4">
+                <i class="fa-sharp fa-solid fa-user logobotoncontenido"></i>
             </div>
             <h2>Usuario</h2>
         </a>
-        <a id="bnotificaciones" href="/notificaciones" class="botoncontenido">
-            <div class="hidden lg:flex lg:justify-center lg:w-1/4"><i
-                    class="fa-sharp fa-solid fa-bell logobotoncontenido"></i></div>
+        <a
+            id="bnotificaciones"
+            href="/notificaciones"
+            class="hidden botoncontenido"
+        >
+            <div class="hidden lg:flex lg:justify-center lg:w-1/4">
+                <i class="fa-sharp fa-solid fa-bell logobotoncontenido"></i>
+            </div>
             <h2>Notificaciones</h2>
         </a>
     </div>
-    <a class="documentacion" href="index.html">Documentación</a>
+    <a class="flex acceder" href="/acceder">Acceder</a>
+    <span id="salir" class="hidden salir">Salir</span>
 </header>
 
-<style>
-
-</style>
+<style></style>
 
 <script>
+    if (localStorage.getItem("idUsuario")) {
+        document.querySelector(".acceder").classList.remove("flex");
+        document.querySelector(".acceder").classList.add("hidden");
+        document.querySelector(".salir").classList.add("flex");
+        document.querySelector(".salir").classList.remove("hidden");
+        document.querySelector("#busuario").classList.remove("hidden");
+        document.querySelector("#busuario").classList.add("flex");
+        document.querySelector("#bnotificaciones").classList.remove("hidden");
+        document.querySelector("#bnotificaciones").classList.add("flex");
+    }
+
+    document.querySelector("#salir").addEventListener("click", function () {
+        localStorage.removeItem("idUsuario");
+        alert("Sesión cerrada exitosamente");
+        location.reload();
+    });
 </script>

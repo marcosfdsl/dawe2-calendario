@@ -57,7 +57,6 @@ import logo from "../fotos/logo.png";
 				padding-left: 10%;
 				padding-right: 10%;
 				transition: all 0.3s;
-				display: flex;
 				justify-content: center;
 			}
 
@@ -88,14 +87,14 @@ import logo from "../fotos/logo.png";
 				margin-right: 5%;
 			}
 
-			.documentacion {
+			.acceder, .salir {
 				width: 100%;
 				color: rgb(196, 196, 196);
 				font-size: small;
 				position: absolute;
-				display: none;
 				justify-content: center;
 				top: 85vh;
+				cursor: pointer;
 			}
 
 			.hrv {
@@ -154,8 +153,7 @@ import logo from "../fotos/logo.png";
 					display: none;
 				}
 
-				.documentacion {
-					display: flex;
+				.acceder, .salir {
 					flex-direction: column;
 					justify-content: flex-end;
 					margin-left: 10%;
@@ -185,8 +183,8 @@ import logo from "../fotos/logo.png";
 			var botonesMenu = document.querySelector(
 				".botonesmenu",
 			) as HTMLElement;
-			var documentacion = document.querySelector(
-				".documentacion",
+			var acceder = document.querySelector(
+				".acceder",
 			) as HTMLElement;
 
 			botonMenu.addEventListener("click", function () {
@@ -195,10 +193,10 @@ import logo from "../fotos/logo.png";
 					botonesMenu.style.display === ""
 				) {
 					botonesMenu.style.display = "flex";
-					documentacion.style.display = "flex";
+					acceder.style.display = "flex";
 				} else {
 					botonesMenu.style.display = "none";
-					documentacion.style.display = "none";
+					acceder.style.display = "none";
 				}
 			});
 		</script>
