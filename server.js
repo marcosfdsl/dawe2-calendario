@@ -141,11 +141,6 @@ app.delete('/api/v1/profesores/:id', (req, res) => {
     }
 })
 
-
-
-
-
-// Inicializar Servidor
 server.listen(port, function () {
     console.log("Servidor iniciado en http://localhost:" + port);
 });
