@@ -6,7 +6,8 @@ El proyecto está dividido en dos partes: el lado del cliente y el del servidor.
 El lado del cliente está desarrollado con Astro, un framework de renderizado estático basado en React.js.
 Si bien Astro permite crear sitios web estáticos rápidos y escalables, también es útil para sitios web dinámicos.
 
-
+-Calendario (index.astro): Vista del calendario de Microsoft con la sesión iniciada de la cuenta de U-Tad. AÚN POR DESARROLLAR.
+-
 
 El lado del servidor está desarrollado con Node y Express, y sirve al usuario la carpeta 'dist' generada por Astro.
 También incluye una api de consultas para mostrar los datos de db/db.js en las diferentes páginas del sitio.
