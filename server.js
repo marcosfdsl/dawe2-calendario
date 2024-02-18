@@ -20,8 +20,17 @@ app.use(express.static(path.join(__dirname, "dist/")));
 app.use(bodyParser.json());
 
 // Routing
-app.get("/", function (req, response) {
-    response.sendFile(path.join(__dirname, "dist/"));
+app.get("/", function (req, res) {
+    res.sendFile(path.join(__dirname, "dist/"));
+});
+
+app.get('/profesor', (req, res) => {
+    const id = req.query.id;
+    if (id) {
+        res.redirect(`/profesor/?id=${id}`);
+    } else {
+        res.status(400).send('Error: Falta el parámetro "id" en la URL');
+    }
 });
 
 app.get('/api/v1/profesores', (req, res) => {
@@ -67,7 +76,6 @@ app.post('/api/v1/acceder', (req, res) => {
         res.status(401).send('Credenciales inválidas.');
     }
 });
-
 
 app.post('/api/v1/profesores', (req, res) => {
     if (!req.body.nombre || !req.body.correo) {

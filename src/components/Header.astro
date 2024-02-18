@@ -40,7 +40,7 @@ import logoheader from "../fotos/logo-header.png";
             <h2>Notificaciones</h2>
         </a>
     </div>
-    <a class="flex acceder" href="/acceder">Acceder</a>
+    <a class="hidden lg:flex acceder" href="/acceder">Acceder</a>
     <span id="salir" class="hidden salir">Salir</span>
 </header>
 
@@ -48,10 +48,8 @@ import logoheader from "../fotos/logo-header.png";
 
 <script>
     if (localStorage.getItem("idUsuario")) {
-        document.querySelector(".acceder").classList.remove("flex");
-        document.querySelector(".acceder").classList.add("hidden");
-        document.querySelector(".salir").classList.add("flex");
-        document.querySelector(".salir").classList.remove("hidden");
+        document.querySelector(".acceder").classList.remove("lg:flex");
+        document.querySelector(".salir").classList.add("lg:flex");
         document.querySelector("#busuario").classList.remove("hidden");
         document.querySelector("#busuario").classList.add("flex");
         document.querySelector("#bnotificaciones").classList.remove("hidden");

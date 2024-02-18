@@ -17,7 +17,9 @@ import logo from "../fotos/logo.png";
 			href="https://fonts.googleapis.com/css2?family=Kanit&display=swap"
 			rel="stylesheet"
 		/>
-		<script src="https://kit.fontawesome.com/bf7e2ba98b.js" crossorigin="anonymous"></script>
+		<script
+			src="https://kit.fontawesome.com/bf7e2ba98b.js"
+			crossorigin="anonymous"></script>
 		<style is:global>
 			.menu {
 				background-color: rgb(34, 34, 34);
@@ -87,7 +89,8 @@ import logo from "../fotos/logo.png";
 				margin-right: 5%;
 			}
 
-			.acceder, .salir {
+			.acceder,
+			.salir {
 				width: 100%;
 				color: rgb(196, 196, 196);
 				font-size: small;
@@ -153,7 +156,8 @@ import logo from "../fotos/logo.png";
 					display: none;
 				}
 
-				.acceder, .salir {
+				.acceder,
+				.salir {
 					flex-direction: column;
 					justify-content: flex-end;
 					margin-left: 10%;
@@ -183,9 +187,8 @@ import logo from "../fotos/logo.png";
 			var botonesMenu = document.querySelector(
 				".botonesmenu",
 			) as HTMLElement;
-			var acceder = document.querySelector(
-				".acceder",
-			) as HTMLElement;
+			var acceder = document.querySelector(".acceder") as HTMLElement;
+			var salir = document.querySelector(".salir") as HTMLElement;
 
 			botonMenu.addEventListener("click", function () {
 				if (
@@ -193,10 +196,18 @@ import logo from "../fotos/logo.png";
 					botonesMenu.style.display === ""
 				) {
 					botonesMenu.style.display = "flex";
-					acceder.style.display = "flex";
+					if (localStorage.getItem("idUsuario")) {
+						salir.style.display = "flex";
+					} else {
+						acceder.style.display = "flex";
+					}
 				} else {
 					botonesMenu.style.display = "none";
-					acceder.style.display = "none";
+					if (localStorage.getItem("idUsuario")) {
+						salir.style.display = "none";
+					} else {
+						acceder.style.display = "none";
+					}
 				}
 			});
 		</script>
