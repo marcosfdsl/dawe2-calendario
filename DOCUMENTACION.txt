@@ -7,7 +7,9 @@ El lado del cliente está desarrollado con Astro, un framework de renderizado es
 Si bien Astro permite crear sitios web estáticos rápidos y escalables, también es útil para sitios web dinámicos.
 
 -Calendario (index.astro): Vista del calendario de Microsoft con la sesión iniciada de la cuenta de U-Tad. AÚN POR DESARROLLAR.
--
+-Profesores (profesores.astro): Listado de los profesores, con las opciones de ver el perfil y mandar un mensaje
+-Usuario (usuario.astro): Información del perfil del usuario que ocupa la sesión.
+-Notificaciones (notificaciones.astro): Listado de las notificaciones, incluyendo alertas de eventos próximos (clases, tutorías) y mensajes.
 
-El lado del servidor está desarrollado con Node y Express, y sirve al usuario la carpeta 'dist' generada por Astro.
+El lado del servidor está desarrollado con Node y Express, y sirve al usuario la carpeta 'dist' generada por el comando 'npm run build'.
 También incluye una api de consultas para mostrar los datos de db/db.js en las diferentes páginas del sitio.
